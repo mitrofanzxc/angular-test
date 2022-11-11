@@ -10,4 +10,8 @@ import { IList } from './data/list.interface';
 export class AppComponent {
   title = 'angular test';
   list: IList = list;
+
+  filterList(type: string): void {
+    this.list.data = this.list.data.filter((item) => item.type === type);
+  }
 }

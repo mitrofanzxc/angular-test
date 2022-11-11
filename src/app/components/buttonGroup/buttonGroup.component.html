@@ -1,0 +1,50 @@
+<div
+  class="btn-group"
+  role="group"
+  aria-label="Basic radio toggle button group"
+>
+  <input
+    type="radio"
+    class="btn-check"
+    name="btn-radio-filter"
+    id="btn-radio-filter-1"
+    autocomplete="off"
+    checked
+    (change)="filterList('income')"
+  />
+  <label class="btn btn-outline-primary" for="btn-radio-filter-1">income</label>
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="btn-radio-filter"
+    id="btn-radio-filter-2"
+    autocomplete="off"
+    (change)="filterList('outcome')"
+  />
+  <label class="btn btn-outline-primary" for="btn-radio-filter-2"
+    >outcome</label
+  >
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="btn-radio-filter"
+    id="btn-radio-filter-3"
+    autocomplete="off"
+    (change)="filterList('loan')"
+  />
+  <label class="btn btn-outline-primary" for="btn-radio-filter-3">loan</label>
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="btn-radio-filter"
+    id="btn-radio-filter-4"
+    autocomplete="off"
+    (change)="filterList('investment')"
+  />
+  <label class="btn btn-outline-primary" for="btn-radio-filter-4"
+    >investment</label
+  >
+</div>

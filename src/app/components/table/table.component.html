@@ -10,7 +10,7 @@
     <tr *ngFor="let item of list.data; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ item.name.last + " " + item.name.first | titlecase }}</td>
-      <td>{{ item.amount | number }}</td>
+      <td>{{ item.amount | currency: "USD" }}</td>
     </tr>
   </tbody>
 </table>
