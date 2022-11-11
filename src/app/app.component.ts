@@ -10,8 +10,13 @@ import { IList } from './data/list.interface';
 export class AppComponent {
   title = 'angular test';
   list: IList = list;
+  filterValue: string = 'income';
 
-  filterList(type: string): void {
-    this.list.data = this.list.data.filter((item) => item.type === type);
+  filterList(): void {
+    this.list.data = this.list.data.filter(
+      (item) => item.type === this.filterValue
+    );
+    console.log('click');
+    console.log(this.list);
   }
 }

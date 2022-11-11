@@ -9,8 +9,8 @@
     name="btn-radio-filter"
     id="btn-radio-filter-1"
     autocomplete="off"
+    [value]="filterValue"
     checked
-    (change)="filterList('income')"
   />
   <label class="btn btn-outline-primary" for="btn-radio-filter-1">income</label>
 
@@ -20,7 +20,7 @@
     name="btn-radio-filter"
     id="btn-radio-filter-2"
     autocomplete="off"
-    (change)="filterList('outcome')"
+    [value]="filterValue"
   />
   <label class="btn btn-outline-primary" for="btn-radio-filter-2"
     >outcome</label
@@ -32,7 +32,7 @@
     name="btn-radio-filter"
     id="btn-radio-filter-3"
     autocomplete="off"
-    (change)="filterList('loan')"
+    [value]="filterValue"
   />
   <label class="btn btn-outline-primary" for="btn-radio-filter-3">loan</label>
 
@@ -42,7 +42,7 @@
     name="btn-radio-filter"
     id="btn-radio-filter-4"
     autocomplete="off"
-    (change)="filterList('investment')"
+    [value]="filterValue"
   />
   <label class="btn btn-outline-primary" for="btn-radio-filter-4"
     >investment</label

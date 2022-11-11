@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button-group',
   templateUrl: './buttonGroup.component.html',
 })
 export class ButtonGroupComponent {
-  @Input() filterList: (type: string) => void;
+  @Input() filterValue: string = '';
+
+  // filterValueHandler()
 }
