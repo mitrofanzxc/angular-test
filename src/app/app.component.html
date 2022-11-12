@@ -1,4 +1,25 @@
 <div class="container">
-  <h1>{{ title | titlecase }}</h1>
-  <app-table></app-table>
+  <header
+    class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+  >
+    <a
+      routerLink="/summary"
+      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+    >
+      <h1 class="fs-4">{{ title | titlecase }}</h1>
+    </a>
+    <nav>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a routerLink="/summary" class="nav-link active" aria-current="page"
+            >Summary</a
+          >
+        </li>
+        <li class="nav-item">
+          <a routerLink="/navigator" class="nav-link">Navigator</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <router-outlet></router-outlet>
 </div>

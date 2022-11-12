@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { IData } from '../../data/data.interface';
-import { BUTTONS } from './../../data/buttons';
-import { IButtons } from './../../data/buttons.interface';
+import { BUTTONS } from '../../data/buttons';
+import { IButtons } from '../../data/buttons.interface';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
+  selector: 'app-navigator',
+  templateUrl: './navigator.component.html',
 })
-export class TableComponent implements OnInit {
+export class NavigatorComponent implements OnInit {
   data: IData = { total: 0, data: [] };
   buttons: IButtons[] = BUTTONS;
 
