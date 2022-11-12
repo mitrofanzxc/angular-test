@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ListService } from 'src/app/services/list.service';
 
 @Component({
   selector: 'app-button-group',
   templateUrl: './buttonGroup.component.html',
 })
-export class ButtonGroupComponent {
-  @Input() filterValue: string = '';
-
-  // filterValueHandler()
+export class ButtonGroupComponent implements OnInit {
+  constructor(public listService: ListService) {}
+  ngOnInit() {}
 }

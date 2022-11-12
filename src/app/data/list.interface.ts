@@ -1,7 +1,7 @@
 export interface IData {
   type: string;
   _id: string;
-  amount: number;
+  amount: string;
   name: {
     first: string;
     last: string;
