@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from './../../services/list.service';
-import { IList } from './../../data/list.interface';
+import { DataService } from '../../services/data.service';
+import { IData } from '../../data/data.interface';
+import { BUTTONS } from './../../data/buttons';
+import { IButtons } from './../../data/buttons.interface';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
 })
 export class TableComponent implements OnInit {
-  list: IList = { total: 0, data: [] };
+  data: IData = { total: 0, data: [] };
+  buttons: IButtons[] = BUTTONS;
 
-  constructor(private listService: ListService) {}
+  constructor(private dataService: DataService) {}
 
-  getList(): void {
-    this.listService.getList().subscribe((list) => {
-      this.list = list;
+  getData(): void {
+    this.dataService.getData().subscribe((data) => {
+      this.data = data;
     });
   }
 
-  filterList(event: Event): void {
-    this.listService.filterList(event).subscribe((list) => {
-      this.list.data = list;
+  filterData(event: Event): void {
+    this.dataService.filterData(event).subscribe((data) => {
+      this.data.data = data;
     });
   }
 
   ngOnInit() {
-    this.getList();
+    this.getData();
   }
 }

@@ -1,29 +1,28 @@
-import { IData } from './../data/list.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, of, Observable } from 'rxjs';
-import { IList } from '../data/list.interface';
+import { Observable, map, of } from 'rxjs';
+import { IList, IData } from '../data/data.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ListService {
-  private url = 'assets/list.json';
+export class DataService {
+  private url = 'assets/data.json';
 
   constructor(private http: HttpClient) {}
 
-  getList(): Observable<IList> {
-    return this.http.get<IList>(this.url);
+  getData(): Observable<IData> {
+    return this.http.get<IData>(this.url);
   }
 
-  filterList(event: Event): Observable<IData[]> {
+  filterData(event: Event): Observable<IList[]> {
     const target = event.target as HTMLInputElement;
     const checked = target.checked as boolean;
     const value = target.value as string;
 
     if (checked) {
       return this.http
-        .get<IList>(this.url)
+        .get<IData>(this.url)
         .pipe(map((list) => list.data.filter((item) => item.type === value)));
     }
 

@@ -1,4 +1,4 @@
-export interface IData {
+export interface IList {
   type: string;
   _id: string;
   amount: number;
@@ -12,7 +12,7 @@ export interface IData {
   address: string;
 }
 
-export interface IList {
+export interface IData {
   total: number;
-  data: IData[];
+  data: IList[];
 }
