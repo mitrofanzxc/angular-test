@@ -1,6 +1,7 @@
+import { IData } from './../data/list.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, of, Observable } from 'rxjs';
 import { IList } from '../data/list.interface';
 
 @Injectable({
@@ -15,7 +16,17 @@ export class ListService {
     return this.http.get<IList>(this.url);
   }
 
-  // filterList(type: string): void {
-  //   this.list.data = list.data.filter((item) => item.type === type);
-  // }
+  filterList(event: Event): Observable<IData[]> {
+    const target = event.target as HTMLInputElement;
+    const checked = target.checked as boolean;
+    const value = target.value as string;
+
+    if (checked) {
+      return this.http
+        .get<IList>(this.url)
+        .pipe(map((list) => list.data.filter((item) => item.type === value)));
+    }
+
+    return of([]);
+  }
 }

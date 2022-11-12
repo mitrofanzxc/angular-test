@@ -9,11 +9,21 @@ import { IList } from './../../data/list.interface';
 export class TableComponent implements OnInit {
   list: IList = { total: 0, data: [] };
 
-  constructor(public listService: ListService) {}
+  constructor(private listService: ListService) {}
 
-  ngOnInit() {
+  getList(): void {
     this.listService.getList().subscribe((list) => {
       this.list = list;
     });
+  }
+
+  filterList(event: Event): void {
+    this.listService.filterList(event).subscribe((list) => {
+      this.list.data = list;
+    });
+  }
+
+  ngOnInit() {
+    this.getList();
   }
 }
