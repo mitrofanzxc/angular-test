@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { IData } from '../../data/data.interface';
 import { BUTTONS } from '../../data/buttons';
@@ -9,7 +9,7 @@ import { IButtons } from '../../data/buttons.interface';
   selector: 'app-navigator',
   templateUrl: './navigator.component.html',
 })
-export class NavigatorComponent implements OnInit {
+export class NavigatorComponent implements OnInit, AfterViewInit {
   data: IData = { total: 0, data: [] };
   buttons: IButtons[] = BUTTONS;
 
@@ -19,29 +19,77 @@ export class NavigatorComponent implements OnInit {
     private router: Router
   ) {}
 
-  getData(): void {
-    this.dataService.getData().subscribe((data) => {
-      this.data = data;
+  getData(value: string): void {
+    this.dataService.getData(value).subscribe((data) => {
+      this.data.data = data;
+      this.data.total = data.length;
     });
   }
 
   filterData(event: Event): void {
     const target = event.target as HTMLInputElement;
-    const checked = target.checked as boolean;
     const id = target.id.slice(-1) as string;
 
-    if (checked) {
-      this.router.navigate(['navigator'], {
-        queryParams: { tab: id },
-      });
-    }
-
-    this.dataService.filterData(event).subscribe((data) => {
-      this.data.data = data;
+    this.router.navigate(['navigator'], {
+      queryParams: { tab: id },
     });
   }
 
-  ngOnInit() {
-    this.getData();
+  handleActiveButton(value: string) {
+    const container = document.querySelector('.btn-group') as HTMLDivElement;
+    const buttons = container.querySelectorAll(
+      '.btn-check'
+    ) as NodeListOf<HTMLInputElement>;
+    console.log(buttons);
+
+    buttons.forEach((button) => {
+      if (button.value === value) {
+        button.checked = true;
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      switch (params['tab']) {
+        case '0':
+          this.getData('income');
+          break;
+        case '1':
+          this.getData('outcome');
+          break;
+        case '2':
+          this.getData('loan');
+          break;
+        case '3':
+          this.getData('investment');
+          break;
+        default:
+          this.getData('income');
+          break;
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      switch (params['tab']) {
+        case '0':
+          this.handleActiveButton('income');
+          break;
+        case '1':
+          this.handleActiveButton('outcome');
+          break;
+        case '2':
+          this.handleActiveButton('loan');
+          break;
+        case '3':
+          this.handleActiveButton('investment');
+          break;
+        default:
+          this.handleActiveButton('income');
+          break;
+      }
+    });
   }
 }

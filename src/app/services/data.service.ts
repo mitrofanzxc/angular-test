@@ -11,8 +11,10 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<IData> {
-    return this.http.get<IData>(this.url);
+  getData(value: string): Observable<IList[]> {
+    return this.http
+      .get<IData>(this.url)
+      .pipe(map((list) => list.data.filter((item) => item.type === value)));
   }
 
   filterData(event: Event): Observable<IList[]> {
