@@ -19,8 +19,8 @@ export class NavigatorComponent implements OnInit, AfterViewInit {
     private router: Router
   ) {}
 
-  getData(value: string): void {
-    this.dataService.getData(value).subscribe((data) => {
+  getFilteredData(value: string): void {
+    this.dataService.getFilteredData(value).subscribe((data) => {
       this.data.data = data;
       this.data.total = data.length;
     });
@@ -52,19 +52,19 @@ export class NavigatorComponent implements OnInit, AfterViewInit {
     this.route.queryParams.subscribe((params) => {
       switch (params['tab']) {
         case '0':
-          this.getData('income');
+          this.getFilteredData('income');
           break;
         case '1':
-          this.getData('outcome');
+          this.getFilteredData('outcome');
           break;
         case '2':
-          this.getData('loan');
+          this.getFilteredData('loan');
           break;
         case '3':
-          this.getData('investment');
+          this.getFilteredData('investment');
           break;
         default:
-          this.getData('income');
+          this.getFilteredData('income');
           break;
       }
     });
