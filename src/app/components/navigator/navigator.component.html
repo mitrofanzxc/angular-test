@@ -1,0 +1,45 @@
+<div
+  #buttonsContainer
+  class="btn-group w-100 flex-wrap"
+  role="group"
+  aria-label="radio toggle button group"
+  (change)="setQueryParams($event)"
+>
+  <ng-container *ngFor="let button of buttons; index as i">
+    <input
+      type="radio"
+      class="btn-check"
+      name="btn-radio-filter"
+      [id]="button.id"
+      autocomplete="off"
+      [value]="button.value"
+      [checked]="button.checked"
+    />
+    <label class="btn btn-outline-primary" [for]="button.id">{{
+      button.value
+    }}</label>
+  </ng-container>
+</div>
+
+<table class="table table-striped">
+  <caption>
+    Total:
+    {{
+      data.total
+    }}
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data.data; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ item.name.last + " " + item.name.first | titlecase }}</td>
+      <td>{{ item.amount | currency: "USD" }}</td>
+    </tr>
+  </tbody>
+</table>

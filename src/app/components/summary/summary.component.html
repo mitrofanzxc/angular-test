@@ -1,0 +1,48 @@
+<div class="px-4 py-3 my-3 text-center">
+  <svg class="bi d-block mx-auto mb-4" width="4em" height="4em">
+    <use xlink:href="assets/sprite.svg#money" />
+  </svg>
+  <h2 class="display-5 fw-bold">Welcome</h2>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      This SPA application was created using frameworks: Angular and Bootstrap.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+      <a routerLink="/navigator" class="btn btn-primary btn-lg px-4 gap-3">
+        See Transactions
+      </a>
+    </div>
+    <h3 class="fs-2">
+      You have {{ total[0].transactions }} transactions worth
+      {{ total[0].amount | currency: "USD" }}
+    </h3>
+  </div>
+</div>
+
+<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+  <div
+    class="col d-flex align-items-start"
+    *ngFor="let feature of features; index as i"
+  >
+    <div
+      class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+    >
+      <svg class="bi" width="1.5em" height="1.5em">
+        <use xlink:href="assets/sprite.svg#money" />
+      </svg>
+    </div>
+    <div>
+      <h3 class="fs-2">{{ feature.value | titlecase }}</h3>
+      <p class="lead mb-1">Transactions: {{ total[i + 1].transactions }}</p>
+      <p class="lead mb-1">
+        Amount: {{ total[i + 1].amount | currency: "USD" }}
+      </p>
+      <a
+        routerLink="/navigator"
+        [queryParams]="feature.params"
+        class="btn btn-primary"
+        >See All</a
+      >
+    </div>
+  </div>
+</div>
