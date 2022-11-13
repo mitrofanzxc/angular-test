@@ -8,15 +8,15 @@
       This SPA application was created using frameworks: Angular and Bootstrap.
     </p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+      <a routerLink="/navigator" class="btn btn-primary btn-lg px-4 gap-3">
         See Transactions
-      </button>
+      </a>
     </div>
   </div>
 </div>
 
 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-  <div *ngFor="let feature of features" class="col d-flex align-items-start">
+  <div class="col d-flex align-items-start" *ngFor="let feature of features">
     <div
       class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
     >
@@ -25,9 +25,14 @@
       </svg>
     </div>
     <div>
-      <h3 class="fs-2">{{ feature | titlecase }}</h3>
+      <h3 class="fs-2">{{ feature.value | titlecase }}</h3>
       <p>Total:</p>
-      <a href="#" class="btn btn-primary">See All</a>
+      <a
+        routerLink="/navigator"
+        [queryParams]="feature.params"
+        class="btn btn-primary"
+        >See All</a
+      >
     </div>
   </div>
 </div>

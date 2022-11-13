@@ -40,7 +40,6 @@ export class NavigatorComponent implements OnInit, AfterViewInit {
     const buttons = container.querySelectorAll(
       '.btn-check'
     ) as NodeListOf<HTMLInputElement>;
-    console.log(buttons);
 
     buttons.forEach((button) => {
       if (button.value === value) {
