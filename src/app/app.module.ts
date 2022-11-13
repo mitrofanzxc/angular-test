@@ -5,11 +5,18 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigatorComponent } from './components/navigator/navigator.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SummaryComponent } from './components/summary/summary.component';
+import { NavigatorComponent } from './components/navigator/navigator.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigatorComponent],
+  declarations: [
+    AppComponent,
+    SummaryComponent,
+    NavigatorComponent,
+    NotfoundComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
