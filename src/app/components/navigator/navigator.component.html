@@ -1,9 +1,9 @@
 <div
   #buttonsContainer
-  class="btn-group w-100"
+  class="btn-group w-100 flex-wrap"
   role="group"
   aria-label="radio toggle button group"
-  (change)="filterData($event)"
+  (change)="setQueryParams($event)"
 >
   <ng-container *ngFor="let button of buttons; index as i">
     <input

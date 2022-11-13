@@ -16,18 +16,4 @@ export class DataService {
       .get<IData>(this.url)
       .pipe(map((list) => list.data.filter((item) => item.type === value)));
   }
-
-  filterData(event: Event): Observable<IList[]> {
-    const target = event.target as HTMLInputElement;
-    const checked = target.checked as boolean;
-    const value = target.value as string;
-
-    if (checked) {
-      return this.http
-        .get<IData>(this.url)
-        .pipe(map((list) => list.data.filter((item) => item.type === value)));
-    }
-
-    return of([]);
-  }
 }

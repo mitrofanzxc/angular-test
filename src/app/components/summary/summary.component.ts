@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './summary.component.html',
 })
 export class SummaryComponent implements OnInit {
+  features: string[] = ['income', 'outcome', 'loan', 'investment'];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

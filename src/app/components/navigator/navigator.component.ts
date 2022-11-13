@@ -26,7 +26,7 @@ export class NavigatorComponent implements OnInit, AfterViewInit {
     });
   }
 
-  filterData(event: Event): void {
+  setQueryParams(event: Event): void {
     const target = event.target as HTMLInputElement;
     const id = target.id.slice(-1) as string;
 
