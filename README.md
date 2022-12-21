@@ -1,27 +1,31 @@
-# AngularTest
+# Deploy: [Link](https://mitrofanzxc.github.io/angular-test/) 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+### `npm i` 
 
-## Development server
+Install all dependencies. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### `npm run start` 
 
-## Code scaffolding
+Run the app in the development mode. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### `npm run test` 
 
-## Build
+Run the app test. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Requirements of the project: 
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [x] The latest version of Angular. 
+- [x] TypeScript. 
+- [x] Bootstrap 5 as CSS framework. 
+- [x] The application must consists of 2 pages: 
+    - List page (“/navigator” URL); 
+    - Summary page (“/” URL); 
+- [x] Store data in JSON format. 
+- [x] The “List” page is a tab set. Each tab has a simple table. It has 2 columns. First column is “Name” or some other object identity. Second column is some amount or quantity. Please use the image below for your guidance. It’s rows are objects from the JSON above, filtered by “type” property. The “Income” tab will display only those objects, which have “type” === “income”. 
+Other 3 tabs have exactly same filtering logic. 
+The URL of the page should be: /navigator?tab=<0..3>, where tab query parameter corresponds to a currently selected tab, and the type by which the table is filtered. 
+- [x] This page is displayed at the root URL (/). It has cards, please use Bootstrap 4 “card” SCSS classes. This page uses exactly the same JSON data, as the “List” page. 
+  - First card is “Heading” card - it displays total number of objects and text. 
+  - Next 4 cards are very similar. They differ only by the Text and by the type of objects counted: 
+    - Income card: displays count of type=income , “See all” is a routerlink=/navigator?tab=0 
+    - Outcome, Loan, Investment : similar to the cards above. 
