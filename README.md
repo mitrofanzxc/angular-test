@@ -8,10 +8,6 @@ Install all dependencies.
 
 Run the app in the development mode. 
 
-### `npm run test` 
-
-Run the app test. 
-
 ## Requirements of the project: 
 
 - [x] The latest version of Angular. 
